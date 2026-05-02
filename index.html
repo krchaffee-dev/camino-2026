@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Camino 2026">
+<meta name="theme-color" content="#1C1814">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkNhbWlubyBQaWxncmltYWdlIDIwMjYiLAogICJzaG9ydF9uYW1lIjogIkNhbWlubyAyMDI2IiwKICAiZGVzY3JpcHRpb24iOiAiUGlsZ3JpbWFnZSB0cmF2ZWwgZ3VpZGU6IEZyYW5jZSwgU3BhaW4gJiBQb3J0dWdhbCIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMUMxODE0IiwKICAidGhlbWVfY29sb3IiOiAiIzFDMTgxNCIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0Igp9">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>Camino Pilgrimage · May 2026</title>
+<style>
+/* System font stack — no external dependency, works 100% offline */
+:root{
+  --font-serif: 'Palatino Linotype', 'Book Antiqua', Palatino, 'Georgia', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --cream:#F5F0E8;--cream-dark:#EBE4D4;--ink:#1C1814;--ink-light:#4A4238;
+  --ink-muted:#7A6E62;--gold:#B5892A;--gold-light:#C9A03C;--gold-pale:#F5EDD4;
+  --rust:#8B3A1F;--sage:#3D5C36;--sage-pale:#E8EFE6;--blue-pale:#E4EBF2;
+  --blue:#2E5270;--border:rgba(28,24,20,0.12);--border-gold:rgba(181,137,42,0.3);
+  --purple:#6B4E9B;--purple-pale:#F0EBF8;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);background:var(--cream);color:var(--ink);
+  font-size:15px;line-height:1.65;min-height:100vh;
+  padding-bottom:calc(60px + var(--safe-bottom));
+  -webkit-text-size-adjust:100%;
+}
+
+/* IOS INSTALL BANNER */
+.ios-hint{
+  display:none;align-items:center;justify-content:space-between;
+  gap:12px;background:#2E5270;color:white;
+  padding:12px 16px 12px calc(16px + var(--safe-top));
+  font-size:13px;line-height:1.4;
+}
+.ios-hint.show{display:flex}
+.ios-hint-dismiss{
+  background:none;border:none;color:rgba(255,255,255,0.7);
+  font-size:22px;cursor:pointer;padding:0 2px;flex-shrink:0;line-height:1;
+}
+
+/* HEADER */
+.site-header{
+  background:var(--ink);color:var(--cream);
+  padding:calc(1.5rem + var(--safe-top)) 1.25rem 1.75rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 20% 50%,rgba(181,137,42,.18) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 50%,rgba(139,58,31,.14) 0%,transparent 60%);
+}
+.header-shell{
+  display:inline-block;border:1px solid rgba(181,137,42,.45);
+  padding:2px 14px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-light);margin-bottom:.9rem;position:relative;
+}
+.site-header h1{
+  font-family:var(--font-serif);font-size:clamp(1.9rem,7vw,3.2rem);
+  font-weight:300;letter-spacing:.02em;line-height:1.1;
+  position:relative;color:var(--cream);
+}
+.site-header h1 em{font-style:italic;color:var(--gold-light)}
+.header-sub{
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(245,240,232,.5);margin-top:.7rem;position:relative;
+}
+.header-route{
+  display:flex;justify-content:center;align-items:center;
+  flex-wrap:wrap;gap:5px;margin-top:1.1rem;position:relative;
+}
+.route-city{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,240,232,.55)}
+.route-arrow{color:var(--gold);font-size:9px}
+
+/* TOP TAB BAR */
+.tab-bar{display:flex;background:var(--ink);border-bottom:1px solid rgba(181,137,42,.18)}
+.tab-btn{
+  flex:1;padding:13px 8px;font-family:var(--font-sans);
+  font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(245,240,232,.4);background:none;border:none;
+  border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;
+}
+.tab-btn.active{color:var(--gold-light);border-bottom-color:var(--gold)}
+
+/* STOP NAV */
+.nav-wrap{
+  position:sticky;top:0;z-index:100;background:var(--ink);
+  border-bottom:1px solid rgba(181,137,42,.2);
+}
+.nav-scroll{
+  display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav-btn{
+  flex-shrink:0;padding:12px 15px;font-family:var(--font-sans);
+  font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(245,240,232,.4);background:none;border:none;
+  border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.nav-btn.active{color:var(--gold-light);border-bottom-color:var(--gold)}
+
+/* LAYOUT */
+main{max-width:780px;margin:0 auto;padding:0 1rem 3rem}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.stop-panel{display:none}
+.stop-panel.active{display:block}
+
+/* STOP HEADER */
+.stop-header{padding:2rem 0 1.3rem;border-bottom:1px solid var(--border);margin-bottom:1.7rem}
+.stop-eyebrow{
+  font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.45rem;display:flex;align-items:center;gap:8px;
+}
+.stop-eyebrow::after{content:'';flex:1;height:1px;background:var(--border-gold);max-width:50px}
+.stop-title{
+  font-family:var(--font-serif);font-size:clamp(1.65rem,5vw,2.5rem);
+  font-weight:300;line-height:1.15;color:var(--ink);
+}
+.stop-title em{font-style:italic;color:var(--gold)}
+.stop-meta{margin-top:.65rem;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.meta-tag{
+  font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;
+}
+.tag-dates{background:var(--cream-dark);color:var(--ink-muted)}
+.tag-sleep{background:var(--sage-pale);color:var(--sage)}
+.tag-stage{background:var(--blue-pale);color:var(--blue)}
+
+/* SECTIONS */
+.section{margin-bottom:2rem}
+.section-heading{
+  display:flex;align-items:center;gap:9px;
+  margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);
+}
+.section-icon{
+  width:26px;height:26px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:12px;flex-shrink:0;
+}
+.icon-faith{background:#F0EBF8}
+.icon-food{background:var(--sage-pale)}
+.icon-adventure{background:#FDF0E6}
+.icon-tip{background:var(--blue-pale)}
+.section-title{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* CARDS */
+.cards{display:flex;flex-direction:column;gap:1px}
+.card{
+  background:white;padding:.9rem 1.05rem;
+  border:1px solid var(--border);border-bottom:none;
+}
+.cards .card:first-child{border-radius:8px 8px 0 0}
+.cards .card:last-child{border-radius:0 0 8px 8px;border-bottom:1px solid var(--border)}
+.cards .card:only-child{border-radius:8px;border-bottom:1px solid var(--border)}
+.card-title{
+  font-family:var(--font-serif);font-size:1.05rem;font-weight:600;
+  color:var(--ink);line-height:1.3;margin-bottom:.28rem;
+}
+.card-body{font-size:13.5px;color:var(--ink-light);line-height:1.65}
+.map-link{
+  display:inline-flex;align-items:center;gap:5px;margin-top:.5rem;
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--blue);text-decoration:none;
+  border-bottom:1px solid rgba(46,82,112,.25);padding-bottom:1px;
+}
+.map-link:active{color:var(--rust)}
+
+/* TIP */
+.tip-box{
+  background:white;border:1px solid var(--border-gold);
+  border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:.9rem 1.05rem;
+}
+.tip-body{font-size:13.5px;color:var(--ink-light);line-height:1.65}
+
+/* ROUTE VISUAL */
+.route-visual{
+  display:flex;flex-direction:column;gap:0;
+  margin-bottom:1.2rem;position:relative;padding-left:24px;
+}
+.route-visual::before{
+  content:'';position:absolute;left:7px;top:12px;bottom:12px;
+  width:2px;background:linear-gradient(to bottom,var(--gold) 0%,var(--sage) 100%);
+}
+.route-node{display:flex;align-items:flex-start;gap:12px;padding:4px 0}
+.node-dot{
+  width:15px;height:15px;border-radius:50%;flex-shrink:0;
+  margin-top:2px;position:relative;left:-31px;border:2px solid white;
+}
+.dot-sleep{background:var(--sage)}
+.dot-waypoint{background:var(--gold)}
+.node-content{margin-left:-16px}
+.node-name{font-family:var(--font-serif);font-size:.95rem;font-weight:600;color:var(--ink)}
+.node-detail{font-size:11px;color:var(--ink-muted)}
+
+/* PRAYERS */
+.prayer-grid{display:flex;flex-direction:column;gap:1px;margin-top:1rem}
+.prayer-intro{
+  background:var(--gold-pale);border:1px solid var(--border-gold);
+  border-radius:8px;padding:.95rem 1.1rem;margin-bottom:1.4rem;
+  font-size:13.5px;color:var(--ink-light);line-height:1.65;
+}
+.prayer-intro strong{color:var(--ink)}
+.prayer-card{
+  background:white;border:1px solid var(--border);border-bottom:none;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+.prayer-card:first-child{border-radius:8px 8px 0 0}
+.prayer-card:last-child{border-radius:0 0 8px 8px;border-bottom:1px solid var(--border)}
+.prayer-card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 1.05rem;gap:10px;
+}
+.prayer-card-left{display:flex;align-items:center;gap:11px}
+.prayer-day-badge{
+  width:34px;height:34px;border-radius:50%;background:var(--purple-pale);
+  color:var(--purple);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;
+}
+.prayer-date{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:1px}
+.prayer-name{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--ink);line-height:1.2}
+.prayer-location{font-size:11px;color:var(--gold);letter-spacing:.03em;margin-top:1px}
+.prayer-chevron{color:var(--ink-muted);font-size:18px;transition:transform .2s;flex-shrink:0}
+.prayer-card.open .prayer-chevron{transform:rotate(90deg)}
+.prayer-body{
+  display:none;padding:0 1.05rem 1.05rem;
+  font-size:13.5px;color:var(--ink-light);line-height:1.75;
+  border-top:1px solid var(--border);
+}
+.prayer-card.open .prayer-body{display:block}
+.prayer-body p{margin-bottom:.8rem}
+.prayer-body p:last-child{margin-bottom:0}
+.prayer-source{
+  font-size:11px;color:var(--ink-muted);font-style:italic;
+  margin-top:.6rem!important;border-top:1px solid var(--border);padding-top:.6rem;
+}
+.prayer-card.today{border-left:3px solid var(--purple);background:#FDFBFF}
+.prayer-card.today .prayer-day-badge{background:var(--purple);color:white}
+
+/* FOOTER */
+.site-footer{
+  background:var(--ink);color:rgba(245,240,232,.4);text-align:center;
+  padding:1.5rem 1.5rem calc(1.5rem + var(--safe-bottom));font-size:11px;letter-spacing:.06em;
+}
+.site-footer span{color:var(--gold)}
+
+/* ANIMATIONS */
+.stop-panel.active .section{animation:fadeUp .3s ease both}
+.stop-panel.active .section:nth-child(2){animation-delay:.04s}
+.stop-panel.active .section:nth-child(3){animation-delay:.08s}
+.stop-panel.active .section:nth-child(4){animation-delay:.12s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* MOBILE */
+@media(max-width:600px){
+  main{padding:0 .75rem 3rem}
+  .card{padding:.8rem .9rem}
+  .nav-btn{padding:11px 13px;font-size:9.5px}
+}
+
+/* Force light mode — design is intentionally light */
+:root{color-scheme:light only}
+</style>
+</head>
+<body>
+
+<!-- iOS install hint (shown once, dismissed via X) -->
+<div class="ios-hint" id="iosHint">
+  <span>📱 Tap <strong>Share</strong> then <strong>Add to Home Screen</strong> to save offline</span>
+  <button class="ios-hint-dismiss" onclick="dismissHint()" aria-label="Dismiss">×</button>
+</div>
+
+<header class="site-header">
+  <div class="header-shell">Pilgrimage · May 2026</div>
+  <h1>The <em>Camino</em><br>Travel Guide</h1>
+  <p class="header-sub">France · Spain · Portugal</p>
+  <div class="header-route">
+    <span class="route-city">Lourdes</span><span class="route-arrow">›</span>
+    <span class="route-city">SJPP</span><span class="route-arrow">›</span>
+    <span class="route-city">Roncesvalles</span><span class="route-arrow">›</span>
+    <span class="route-city">Pamplona</span><span class="route-arrow">›</span>
+    <span class="route-city">Logroño</span><span class="route-arrow">›</span>
+    <span class="route-city">Burgos</span><span class="route-arrow">›</span>
+    <span class="route-city">León</span><span class="route-arrow">›</span>
+    <span class="route-city">Santiago</span><span class="route-arrow">›</span>
+    <span class="route-city">Porto</span>
+  </div>
+</header>
+
+<div class="tab-bar">
+  <button class="tab-btn active" id="tab-guide-btn" onclick="switchTab('guide',this)">📍 Guide</button>
+  <button class="tab-btn" id="tab-prayers-btn" onclick="switchTab('prayers',this)">🙏 Daily Prayers</button>
+</div>
+
+<div class="tab-panel active" id="tab-guide">
+  <nav class="nav-wrap"><div class="nav-scroll" id="mainNav"></div></nav>
+  <main id="mainContent"></main>
+</div>
+
+<div class="tab-panel" id="tab-prayers">
+  <main style="max-width:780px;margin:0 auto;padding:1.5rem 1rem 4rem">
+    <div class="prayer-intro">
+      <strong>A prayer for each morning of the journey.</strong> These prayers are drawn from centuries of Catholic pilgrim tradition — the Pilgrim Mass, the Codex Calixtinus, Marian devotion, and the spirituality of the Camino de Santiago. Each one is chosen to match where you will be and what the day holds. Open today's prayer, read it slowly, and begin.
+    </div>
+    <div class="prayer-grid" id="prayerGrid"></div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>Made with love · <span>Buen Camino</span> · May 2026</p>
+</footer>
+
+<script>
+// ─── IOS HINT ──────────────────────────────
+function dismissHint(){
+  document.getElementById('iosHint').classList.remove('show');
+  try{localStorage.setItem('hint_dismissed','1')}catch(e){}
+}
+// Show hint only on iOS Safari, only once
+(function(){
+  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone=('standalone' in navigator&&navigator.standalone);
+  const dismissed=function(){try{return localStorage.getItem('hint_dismissed')==='1'}catch(e){return false}}();
+  if(isIOS&&!isStandalone&&!dismissed){
+    document.getElementById('iosHint').classList.add('show');
+  }
+})();
+
+// TAB+HELPERS
+// ─────────────────────────────────────────
+// TAB SWITCHING
+// ─────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ─────────────────────────────────────────
+// MAP LINK HELPER
+// ─────────────────────────────────────────
+const PIN = `<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M5 7L5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>`;
+function mapLink(q) {
+  const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  return `<a class="map-link" href="${url}" target="_blank" rel="noopener">${PIN} View on map</a>`;
+}
+function sectionHTML(icon, iconClass, label, items) {
+  if (!items || !items.length) return '';
+  const cards = items.map(c => `<div class="card"><div class="card-title">${c.title}</div><div class="card-body">${c.body}</div>${c.map ? mapLink(c.map) : ''}</div>`).join('');
+  return `<div class="section"><div class="section-heading"><div class="section-icon ${iconClass}">${icon}</div><div class="section-title">${label}</div></div><div class="cards">${cards}</div></div>`;
+}
+
+// ─────────────────────────────────────────
+// STOPS DATA
+// ─────────────────────────────────────────
+
+// DATA+BUILD
+const stops = [
+  {id:"lourdes",label:"Lourdes",eyebrow:"May 9 – 11",title:"Lourdes, <em>France</em>",tags:[{cls:"tag-dates",text:"May 9–11"},{cls:"tag-sleep",text:"2 nights"}],
+  faith:[
+    {title:"Grotto of Massabielle",body:"The spiritual heart of Lourdes — where Our Lady appeared to Saint Bernadette in 1858. Arrive early morning or late evening to experience it without crowds. Touch the rock, drink the spring water, and spend time in quiet prayer. This is the moment.",map:"Grotte de Massabielle, Lourdes, France"},
+    {title:"Torchlight Marian Procession",body:"Every evening at 9pm, thousands of pilgrims walk the esplanade with candles, singing Ave Maria in multiple languages simultaneously. Deeply moving and unlike anything else. Do not miss this.",map:"Esplanade des Processions, Lourdes, France"},
+    {title:"Procession of the Blessed Sacrament",body:"Held daily at 5pm in the esplanade. The Bishop carries the monstrance and the sick are blessed. One of the most beautiful expressions of Catholic faith you'll witness.",map:"Esplanade des Processions, Lourdes, France"},
+    {title:"Baths of Lourdes",body:"Bathing in the spring waters is a central pilgrimage act. Lines can be 1–3 hours — arrive early (opens 9am). Men's and women's baths are separate. Come with open hands.",map:"Bains de Lourdes, Sanctuaire Notre-Dame de Lourdes, France"},
+    {title:"Stations of the Cross on Calvary Hill",body:"A 1.5km outdoor Via Crucis winding up the hill behind the Sanctuary. Life-size bronze stations, beautiful views, and a meditative walk. Allow 45–60 minutes. Best done in the morning.",map:"Voie du Calvaire, Lourdes, France"},
+  ],
+  food:[
+    {title:"Brasserie des Arts",body:"Reopened in 2023 on the Boulevard de la Grotte, this well-reviewed brasserie serves traditional French cuisine with local Pyrenean products in a beautifully restored space. Friendly atmosphere and great value close to the Sanctuary.",map:"Brasserie des Arts, 79 Boulevard de la Grotte, Lourdes, France"},
+    {title:"O Piment Rouge",body:"The best dinner in Lourdes — a warm Basque-country restaurant on Rue de la Grotte. Order the txilindron d'agneau, chipirons à la Luzienne, or magret de canard with Espelette pepper. Excellent fixed menus around €26. Note: closed Tuesdays and Wednesdays. Reservations recommended.",map:"O Piment Rouge, 37 Rue de la Grotte, Lourdes, France"},
+    {title:"Rue de la Grotte market street",body:"The commercial street between town and the Sanctuary sells chocolate, nougat, and local jams. Pick up a small jar of Pyrenean honey as a souvenir.",map:"Rue de la Grotte, Lourdes, France"},
+  ],
+  adventure:[
+    {title:"Pic du Jer cable car",body:"A 5-minute cable car ride to 948m elevation with panoramic views of Lourdes, the Sanctuary, and the Pyrenees ridge line. Take the first car of the day for the clearest skies.",map:"Pic du Jer, Lourdes, France"},
+    {title:"Gave de Pau riverside walk",body:"The river running through Lourdes makes for a beautiful 30-minute morning walk. The Sanctuary is reflected in the water and early light is gorgeous here.",map:"Gave de Pau, Lourdes, France"},
+  ],
+  tip:"The Sanctuary complex is vast — download the official Lourdes app before arriving. It maps every chapel, grotto, and event in real time. Also: bring a reusable bottle for the spring water."},
+
+  {id:"sjpp",label:"SJPP",eyebrow:"May 11 – 12",title:"Saint-Jean-<em>Pied-de-Port</em>",tags:[{cls:"tag-dates",text:"May 11–12"},{cls:"tag-sleep",text:"1 night"}],
+  faith:[
+    {title:"Notre-Dame du Bout du Pont",body:"The church at the foot of the fortified gate, where pilgrims have paused to pray before the mountain crossing for centuries. Light a candle, receive a pilgrim blessing, and take a quiet moment before the great ascent.",map:"Église Notre-Dame du Bout du Pont, Saint-Jean-Pied-de-Port, France"},
+    {title:"Pilgrim Passport (Credencial)",body:"Collect your credencial and first stamp at the Pilgrim Office on Rue de la Citadelle. This is the official start of your Camino Francés pilgrimage record.",map:"Bureau d'Accueil des Pèlerins, Saint-Jean-Pied-de-Port, France"},
+    {title:"Porte Saint-Jacques",body:"The city gate through which millions of pilgrims have passed since the medieval era. Walk through it with intention — this is the traditional departure point for pilgrims heading to Santiago.",map:"Porte Saint-Jacques, Saint-Jean-Pied-de-Port, France"},
+  ],
+  food:[
+    {title:"Txikia",body:"Beloved Basque pintxos bar in the old town. Order the jambon de Bayonne on a baguette and whatever pintxos are on the bar. Simple, perfect, regional.",map:"Bar Txikia, Saint-Jean-Pied-de-Port, France"},
+    {title:"Restaurant Arrambide",body:"More formal, but worth it for a pre-Camino feast. Pipérade, axoa de veau, and Irouléguy wine from the surrounding appellation.",map:"Restaurant Arrambide, Saint-Jean-Pied-de-Port, France"},
+  ],
+  adventure:[
+    {title:"The Napoleon Route to Roncesvalles (May 12)",body:"25km, 1,400m elevation gain over the Pyrenees. Views from the Lepoeder Pass are extraordinary. Start by 7am. Bring warm layers, rain shell, water, and snacks.",map:"Napoleon Route, Saint-Jean-Pied-de-Port to Roncesvalles"},
+    {title:"Evening walk along the Nive River",body:"SJPP's old town sits along the Nive. An evening stroll with medieval stone houses reflected in the water is one of the prettiest scenes on the entire trip.",map:"Rivière Nive, Saint-Jean-Pied-de-Port, France"},
+  ],
+  tip:"Weather on the Napoleon Route changes fast. Check the Pilgrim Office forecast before departing — if conditions are severe, they'll direct you to the Valcarlos Valley route. Start early and bring more food than you think you need."},
+
+  {id:"roncesvalles",label:"Roncesvalles",eyebrow:"May 12 – 13",title:"Roncesvalles <em>(Orreaga)</em>",tags:[{cls:"tag-dates",text:"May 12–13"},{cls:"tag-sleep",text:"1 night"}],
+  faith:[
+    {title:"Collegiate Church of Santa María — Pilgrim Mass",body:"Founded in the 12th century, this is one of the most important pilgrimage sanctuaries on the Camino. Attend the Pilgrim Mass at 6pm — celebrated specifically for those who just crossed the mountains. The priest asks where everyone is from and the litany of countries is always moving.",map:"Real Colegiata de Roncesvalles, Navarra, Spain"},
+    {title:"Royal Pantheon",body:"Inside the church, the Gothic burial chapel of the Kings of Navarre. A reminder that this route was royal and sacred long before it became a modern hiking trail.",map:"Panteón de los Reyes, Roncesvalles, Spain"},
+    {title:"Silo of Charlemagne",body:"According to legend, Charlemagne buried knights killed at the Battle of Roncevaux here. A small chapel marks the site — quiet, ancient, and worth a moment of reflection.",map:"Silo de Carlomagno, Roncesvalles, Spain"},
+  ],
+  food:[{title:"Hostal Casa Sabina",body:"The classic pilgrim dinner in Roncesvalles. Menú del peregrino is filling and honest — soup, grilled meat, dessert, wine. Don't overthink it. You just crossed the Pyrenees.",map:"Hostal Casa Sabina, Roncesvalles, Spain"}],
+  adventure:[{title:"Beech forest walk at dusk",body:"If your legs have anything left, the beech forests surrounding Roncesvalles are stunning at golden hour. 15–20 minutes out and back on the Camino path gives you the forest and the silence you've earned.",map:"Bosque de Roncesvalles, Navarra, Spain"}],
+  tip:"Roncesvalles is tiny — essentially just the monastery complex and a few buildings. Get to the albergue early (beds fill fast). The Pilgrim Mass at 6pm is worth organizing your entire afternoon around."},
+
+  {id:"pamplona",label:"Pamplona",eyebrow:"May 13 – 14",title:"Pamplona <em>(Iruña)</em>",tags:[{cls:"tag-dates",text:"May 13–14"},{cls:"tag-sleep",text:"1 night"}],
+  faith:[
+    {title:"Cathedral of Santa María la Real",body:"A Gothic masterpiece with one of the finest cloisters in Spain — often described as the most beautiful Gothic cloister in the world. Pilgrim Masses are held here. The cloister's carved portals are extraordinary. Don't rush through it.",map:"Catedral de Santa María la Real, Pamplona, Spain"},
+    {title:"Church of San Saturnino (San Cernin)",body:"One of Pamplona's oldest churches, where thousands of Navarrans were baptized during the medieval Christianization of the region. An atmospheric Romanesque interior, far less visited than the Cathedral.",map:"Iglesia de San Saturnino, Pamplona, Spain"},
+    {title:"Chapel of San Fermín en el Ayuntamiento",body:"The small chapel where the statue of San Fermín is kept — patron saint of Pamplona. A quiet, beautiful chapel in the old town hall complex.",map:"Capilla de San Fermín, Ayuntamiento de Pamplona, Spain"},
+  ],
+  food:[
+    {title:"Calle Estafeta pintxos crawl",body:"The famous bull-run street is lined with pintxos bars. Café Iruña for atmosphere (Hemingway's haunt, open since 1888), Bar Gaucho for creative pintxos, Bar Fitero for the gilda — olive, anchovy, and guindilla on a skewer, the original pintxo.",map:"Calle Estafeta, Pamplona, Spain"},
+    {title:"Restaurante Europa",body:"One of Pamplona's best restaurants in Hotel Europa near the Plaza del Castillo. Modern Navarran cuisine with a serious Navarra and Rioja wine list.",map:"Restaurante Europa, Pamplona, Spain"},
+    {title:"White Asparagus from Navarra",body:"May is peak season for Navarran white asparagus, considered among the finest in the world. Order it wherever you see it — simply grilled with olive oil or with a classic vinaigrette.",map:"Mercado de Santo Domingo, Pamplona, Spain"},
+  ],
+  adventure:[
+    {title:"Walk the Old City Walls",body:"Pamplona's Renaissance star-shaped fortifications are remarkably intact. Walk the top of the walls for sweeping views of the city, the Arga River valley, and the Pyrenees — still snow-capped in May.",map:"Muralla de Pamplona, Spain"},
+    {title:"Plaza del Castillo",body:"The nerve center of the city. Have a coffee at Café Iruña under the arcade, explore the casco antiguo, and find the Mercado de Santo Domingo for local produce.",map:"Plaza del Castillo, Pamplona, Spain"},
+    {title:"Parque de la Ciudadela",body:"A 17th-century star fortress converted into a public park. Beautiful for an evening walk, with incredible views at sunset and frequent outdoor events in spring.",map:"Ciudadela de Pamplona, Spain"},
+  ],
+  tip:"White asparagus is the thing to eat in Pamplona in May. The Pilgrim Office near the Cathedral will stamp your credencial."},
+
+  {id:"logrono",label:"Logroño",eyebrow:"May 14 – 15",title:"Logroño, <em>La Rioja</em>",tags:[{cls:"tag-dates",text:"May 14–15"},{cls:"tag-sleep",text:"1 night"}],
+  faith:[
+    {title:"Cathedral of Santa María de la Redonda",body:"Logroño's twin-towered cathedral is a late Gothic structure with a beautiful Baroque facade. The interior holds a copy of Michelangelo's Descent from the Cross — an unusual treasure in a small Spanish city.",map:"Catedral de Santa María de la Redonda, Logroño, Spain"},
+    {title:"Church of Santiago el Real",body:"Built on the site where Santiago is said to have appeared at the Battle of Clavijo. A dramatic equestrian statue of Santiago Matamoros dominates the facade — a powerful piece of pilgrimage history.",map:"Iglesia de Santiago el Real, Logroño, Spain"},
+  ],
+  food:[
+    {title:"Calle Laurel pintxos crawl",body:"The best pintxos street in all of Rioja. Bar Soriano (legendary mushroom pintxo), Bar Sebas (foie gras), El Tubo for gambas al ajillo. Go on an empty stomach and work your way down.",map:"Calle Laurel, Logroño, Spain"},
+    {title:"Rioja wine at the source",body:"Order Rioja Reserva by the glass at any bar — you're tasting it closer to the barrel than anywhere. Bodegas like CVNE offer visits if you have time.",map:"Calle Laurel, Logroño, La Rioja, Spain"},
+    {title:"Mercado de Abastos",body:"Logroño's covered market on Calle Portales. Open mornings — pick up local chorizo, aged Roncal cheese, and Rioja peppers.",map:"Mercado de Abastos, Logroño, Spain"},
+  ],
+  adventure:[{title:"Parque del Ebro riverside walk",body:"The park follows the riverbank through the city. At sunset in May this is stunning — willows green, water high from snowmelt, light golden. A 30-minute walk.",map:"Parque del Ebro, Logroño, Spain"}],
+  tip:"Calle Laurel is best between 7–9pm. Don't sit — pintxos culture means standing at the bar, ordering one thing, and moving on. €1.50–€2.50 per pintxo is normal."},
+
+  {id:"burgos",label:"Burgos",eyebrow:"May 15 – 16",title:"Burgos",tags:[{cls:"tag-dates",text:"May 15–16"},{cls:"tag-sleep",text:"1 night"}],
+  faith:[
+    {title:"Burgos Cathedral",body:"A UNESCO World Heritage Gothic cathedral and one of the three greatest in Spain. The spires are extraordinary, the Golden Staircase is dazzling, and the tomb of El Cid is in the nave. Budget at least 90 minutes inside.",map:"Catedral de Burgos, Spain"},
+    {title:"Monastery of Las Huelgas",body:"A 12th-century royal Cistercian monastery founded by Alfonso VIII as a royal pantheon. One of the most important monasteries in medieval Spain. The cloister and Romanesque chapter house are exceptional.",map:"Monasterio de Santa María la Real de Las Huelgas, Burgos, Spain"},
+    {title:"Cristo de Burgos",body:"Inside the Cathedral, one of the most venerated crucifixes in Castile — a 14th-century polychrome figure said to be made of buffalo hide, hauntingly lifelike. Pilgrims have knelt before it for 700 years.",map:"Catedral de Burgos, Spain"},
+  ],
+  food:[
+    {title:"Morcilla de Burgos",body:"Burgos's famous blood sausage made with rice. Order it fried or grilled as a tapa. It sounds alarming; it is delicious.",map:"Casco Histórico, Burgos, Spain"},
+    {title:"Mesón del Cid — roast suckling lamb",body:"Castile is the homeland of roast lamb (cordero lechal). Mesón del Cid faces the Cathedral and serves a whole quarter-lamb roasted in a wood oven. One of the great meals of Spain.",map:"Mesón del Cid, Burgos, Spain"},
+    {title:"Casa Ojeda",body:"Another classic Burgalese restaurant with excellent cordero lechal and traditional Castilian cuisine. Reliable and beloved by locals.",map:"Casa Ojeda, Burgos, Spain"},
+  ],
+  adventure:[
+    {title:"Arco de Santa María and the Espolón",body:"The medieval city gate opening onto the Arlanzón River promenade. In May the espolón is lined with blooming chestnuts and locals out for the evening paseo.",map:"Arco de Santa María, Burgos, Spain"},
+    {title:"Museum of Human Evolution",body:"One of the best museums in Spain, built around the Atapuerca fossil site (UNESCO). Engaging, modern, and free on Saturdays.",map:"Museo de la Evolución Humana, Burgos, Spain"},
+  ],
+  tip:"The Cathedral requires a ticket (€7). Go in the late afternoon when stained glass lights up the nave from the west. The exterior at night, lit up, is unforgettable."},
+
+  {id:"leon",label:"León",eyebrow:"May 16 – 17",title:"León",tags:[{cls:"tag-dates",text:"May 16–17"},{cls:"tag-sleep",text:"1 night"},{cls:"tag-stage",text:"Depart by 11am May 17"}],
+  faith:[
+    {title:"León Cathedral (Pulchra Leonina)",body:"If you see only one cathedral interior in Spain, make it León's. The nave is essentially a wall of stained glass — 1,800 square meters of medieval windows, the most of any cathedral in the world. Go between 4–6pm for the best light.",map:"Catedral de León, Spain"},
+    {title:"Basilica of San Isidoro — the 'Sistine Chapel of the Romanesque'",body:"One of the most important Romanesque churches in Spain. The Pantheon of the Kings of León holds 12 kings and queens. The Romanesque frescoes in the Pantheon are unmatched in their completeness and color. Genuinely unmissable.",map:"Basílica de San Isidoro, León, Spain"},
+    {title:"Monastery of San Marcos",body:"A spectacular Plateresque facade on the Camino de Santiago — pilgrims have entered the city through this gate for centuries. Today it's a Parador hotel, but the church and cloister can be visited.",map:"Monasterio de San Marcos, León, Spain"},
+  ],
+  food:[
+    {title:"Cecina de León",body:"León's great cured meat — air-dried, smoked beef aged at least 7 months. Deeper and earthier than jamón. Order it as a tapa before the bike tour.",map:"Barrio Húmedo, León, Spain"},
+    {title:"Restaurante Alfonso IX — Botillo del Bierzo",body:"A hearty Leonese sausage stuffed with pork ribs and tail, smoked and boiled. A pre-Camino feast.",map:"Restaurante Alfonso IX, León, Spain"},
+    {title:"Barrio Húmedo tapas scene",body:"One of the best tapas scenes in Spain — many bars still give a free tapa with every drink. Head to Calle Ancha, Plaza de San Martín. El Rebote and La Competencia are local favorites.",map:"Barrio Húmedo, León, Spain"},
+  ],
+  adventure:[{title:"Evening walk: Cathedral → San Marcos → Barrio Húmedo",body:"A perfect León evening: stained glass at the Cathedral until closing, walk to the San Marcos facade at dusk, then dinner and tapas in the Barrio Húmedo. About 2km total.",map:"Plaza de Regla, León, Spain"}],
+  tip:"Use the afternoon of May 16 for the Cathedral (4–6pm), then San Isidoro, then dinner. Pack and prep your bags the night before — the Camino starts early."},
+
+  {id:"biketour",label:"Bike Tour",eyebrow:"May 17 – 21",title:"Bike Tour: <em>León → Santiago</em>",tags:[{cls:"tag-dates",text:"May 17–21"},{cls:"tag-stage",text:"~320km · 5 stages"}],
+  isBike:true,
+  routeNodes:[
+    {label:"León",detail:"Start · May 17 · Hotel La Posada Regia",type:"sleep"},
+    {label:"La Virgen del Camino ✦",detail:"Waypoint · ~8km · Marian basilica, Patroness of León",type:"waypoint"},
+    {label:"Astorga",detail:"Waypoint · Gaudí palace + Cathedral",type:"waypoint"},
+    {label:"Rabanal del Camino",detail:"Night 1 · Hotel Rural Casa Indie · Gregorian Vespers 7:30pm",type:"sleep"},
+    {label:"Cruz de Ferro ✦",detail:"Waypoint · 1,504m · Sacred iron cross",type:"waypoint"},
+    {label:"La Portela de Valcarce",detail:"Night 2 · Hotel Valcarce · Gateway to O Cebreiro",type:"sleep"},
+    {label:"Villafranca del Bierzo ✦",detail:"Waypoint · Puerta del Perdón",type:"waypoint"},
+    {label:"O Cebreiro ✦",detail:"Waypoint · 1,293m · Grail church · Enters Galicia",type:"waypoint"},
+    {label:"Sarria",detail:"Night 3 · Hotel Mar de Plata · Last Compostela checkpoint",type:"sleep"},
+    {label:"Samos Monastery ✦",detail:"Waypoint · 6th century · Oldest in the West",type:"waypoint"},
+    {label:"Furelos Bridge ✦",detail:"Waypoint · 12th-century medieval bridge, Codex Calixtinus",type:"waypoint"},
+    {label:"Melide",detail:"Night 4 · Hotel Lux Melide · Pulpo capital of the Camino",type:"sleep"},
+    {label:"Arzúa ✦",detail:"Waypoint · Cheese capital of Galicia · 39km to Santiago",type:"waypoint"},
+    {label:"Monte do Gozo ✦",detail:"Waypoint · First sight of Cathedral towers",type:"waypoint"},
+    {label:"Santiago de Compostela",detail:"Arrival · May 21 · Hotel Gelmirez",type:"sleep"},
+  ],
+  faith:[
+    {title:"La Virgen del Camino — first sacred stop (✦ waypoint, ~8km from León)",body:"Just 8km outside León, the Basílica Menor de la Virgen del Camino is the first major spiritual stop of the bike tour. The apparition dates to 1505 — the Virgin appeared to a shepherd and instructed a church be built on the site. She is Patroness of the entire Leonese region. The current 1961 modernist basilica features an extraordinary facade with 13 bronze apostle figures, each six meters tall, by sculptor Josep Maria Subirachs (who later worked on the Sagrada Família). Inside, the 16th-century carved walnut statue of the Virgin holding the body of Christ is deeply moving. Stop, enter, and pray before you begin the long road west.",map:"Basílica de la Virgen del Camino, Avenida Astorga 94, La Virgen del Camino, León, Spain"},
+    {title:"Rabanal del Camino — Gregorian Vespers (Night 1)",body:"The Benedictine monks sing Vespers in Gregorian chant every day at 7:30pm in the Romanesque church of Santa María. Sitting in a candlelit Romanesque church in a tiny mountain village, listening to the monks chant, is one of the most beautiful and unexpected moments on the entire Camino. Do not miss this.",map:"Iglesia de Santa María, Rabanal del Camino, Spain"},
+    {title:"Cruz de Ferro — The Iron Cross (✦ waypoint)",body:"The most sacred non-architectural moment on the entire Camino Francés. An iron cross on a tall wooden pole, set in a mountain of stones left by pilgrims over centuries. Carry a stone from home representing a burden, a prayer, or a person you love. Leave it at the base with a prayer. This is the moment you'll remember most from the entire bike tour.",map:"Cruz de Ferro, Camino de Santiago, Spain"},
+    {title:"Villafranca del Bierzo — Puerta del Perdón (✦ waypoint)",body:"On the way from La Portela de Valcarce toward O Cebreiro, the Romanesque church of Santiago in Villafranca has a special northern portal called the Door of Forgiveness. In the medieval era, pilgrims too ill to continue could touch this door and receive the same indulgence as reaching the Cathedral. A powerful symbolic act.",map:"Iglesia de Santiago, Villafranca del Bierzo, Spain"},
+    {title:"O Cebreiro — Santa María la Real and the Grail chalice (✦ waypoint)",body:"The pre-Romanesque church at O Cebreiro, built in the 9th century, holds the Chalice of O Cebreiro — a Romanesque chalice that inspired the Holy Grail legends in Spain. The interior is small, ancient, and luminous on a misty morning. A Pilgrim Mass is celebrated here daily.",map:"Iglesia de Santa María la Real, O Cebreiro, Spain"},
+    {title:"Samos Monastery (✦ waypoint — southern variant)",body:"The Benedictine Monastery of Samos, founded in the 6th century, is one of the oldest and largest monasteries in the Western world. The double-tiered cloister with Baroque frescoes is extraordinary. The monks still live and pray here.",map:"Monasterio de San Julián de Samos, Spain"},
+    {title:"Furelos Bridge — Puente de San Xoán (✦ waypoint, just before Melide)",body:"About 1.5km before Melide, the medieval Puente de San Xoán de Furelos crosses the Furelos river and is one of the most beautiful civil architecture achievements on the entire Camino. First mentioned in the 12th-century Codex Calixtinus, it spans 50 meters with four Romanesque arches built from the dark local stone unique to this corner of Galicia. Stop on the bridge, look upstream, and let the water sound wash over you.",map:"Puente de San Xoán de Furelos, Furelos, Melide, A Coruña, Spain"},
+    {title:"Sarria — stamp your credencial twice (Night 3)",body:"Get two stamps in Sarria to begin documenting the final 100km. Most pilgrims use the church of El Salvador and the albergue. From here, the final 100km to Santiago must be documented with at least one stamp per day.",map:"Iglesia del Salvador, Sarria, Spain"},
+    {title:"Arzúa — Chapel of the Magdalena and the last 39km (✦ waypoint)",body:"Arzúa is where three Camino routes converge — the Francés, the Norte, and the Primitivo. The 14th-century Chapel of the Magdalena, founded by Augustinian friars to shelter pilgrims, sits at the entrance to town — get your credencial stamped here. Only 39km to Santiago from here.",map:"Capilla de la Magdalena, Arzúa, A Coruña, Spain"},
+    {title:"Melide — Cruceiro de Melide (Night 4)",body:"The oldest surviving stone cross (cruceiro) in Galicia, dating from the 14th century, stands in the center of Melide's old quarter. Carved with a Cristo on one face and a Madonna on the other. Touch it — thousands of pilgrims have.",map:"Cruceiro de Melide, Galicia, Spain"},
+    {title:"Monte do Gozo — first sight of the Cathedral (✦ waypoint)",body:"From Monte do Gozo, the two towers of the Cathedral become visible for the first time. Medieval pilgrims wept here. Modern pilgrims still do. After days of cycling from León, this view is the visual confirmation that you have made it. Stop the bike. Look. Whoever first spots the towers becomes 'King' of the group.",map:"Monte do Gozo, Santiago de Compostela, Spain"},
+  ],
+  food:[
+    {title:"Cocido Maragato in Astorga",body:"The signature dish of the Maragatería region — a hearty stew of chickpeas, various meats, chorizo, and vegetables, eaten in reverse order (meat first, then vegetables, then broth). A unique and famous dining ritual.",map:"Restaurante La Peseta, Astorga, Spain"},
+    {title:"Mantecadas de Astorga",body:"Astorga's beloved small butter cakes, made since the 16th century. Every bakery sells them in gold-foil boxes. Excellent cycling fuel and a great gift to bring home.",map:"Astorga, León, Spain"},
+    {title:"Mencía wine from El Bierzo — drink it here",body:"Hotel Valcarce sits in the heart of El Bierzo wine country. Mencía is earthy, violet-scented, and perfumed with wild herbs. Bodegas Pittacum and Dominio de Tares are benchmark producers. Ask for it by the glass at dinner in La Portela or nearby Villafranca.",map:"Villafranca del Bierzo, León, Spain"},
+    {title:"Caldo Gallego at O Cebreiro",body:"After the brutal climb to O Cebreiro from La Portela de Valcarce, the bar at the summit serves caldo gallego — white bean, greens, and pork broth — that at 1,300m on a misty mountain morning is one of the most satisfying things you will ever eat.",map:"O Cebreiro, Lugo, Galicia, Spain"},
+    {title:"Pulpería Ezequiel, Melide — mandatory",body:"Open daily 9:30am–midnight, the most famous octopus restaurant on the entire Camino Francés. Copper cauldrons, wooden plates. Order pulpo a feira with pan de maíz and a ceramic bowl of Ribeiro. Plan your cycling to arrive at lunch (12:30–1pm). This is not a meal — it is a sacrament. Located at Av. Lugo, 48, Melide.",map:"Pulpería Ezequiel, Avenida Lugo 48, Melide, A Coruña, Spain"},
+    {title:"Arzúa-Ulloa cheese — eat it here",body:"Arzúa is the cheese capital of Galicia, famous for Queixo Arzúa-Ulloa (PDO), a soft buttery cow's milk cheese made in this valley for centuries. Buy a wedge from any local shop or the market.",map:"Arzúa, A Coruña, Galicia, Spain"},
+    {title:"Empanada Gallega",body:"Galician stuffed pastry — tuna and pepper, pork, or scallop (vieira). Available at every bakery from O Cebreiro onward. Perfect cycling food: filling, cheap, and delicious cold.",map:"Sarria, Lugo, Galicia, Spain"},
+    {title:"Padrón peppers (Pimientos de Padrón)",body:"Fried in olive oil with coarse sea salt. Some are hot, some mild — the Galician roulette. A must-order with any drink in any bar from Sarria onward.",map:"Padrón, Galicia, Spain"},
+  ],
+  adventure:[
+    {title:"Astorga — Gaudí's Episcopal Palace (waypoint)",body:"At roughly the halfway point of Stage 1, Astorga has a surprise: the Bishop's Palace designed by Antoni Gaudí in 1889 in a neo-Gothic style. A Gaudí building on the Camino is not something you expect. The interior houses the Museo de los Caminos. Allow 45–60 minutes.",map:"Palacio Episcopal de Gaudí, Astorga, Spain"},
+    {title:"Hospital de Órbigo — the Passo Honroso medieval bridge",body:"About 25km from León, the medieval bridge at Hospital de Órbigo is the longest on the Camino and the site of a famous medieval jousting legend. The bridge is still intact. Cross it with intention — pilgrims have done so for 900 years.",map:"Puente de Órbigo, Hospital de Órbigo, Spain"},
+    {title:"La Portela de Valcarce — evening in the Valcarce gorge",body:"Hotel Valcarce sits in a dramatic gorge where the Valcarce river cuts through the final valley before the great climb to O Cebreiro. In the evening, walk along the river toward the old Roman road section — the ancient Via Trajana follows this valley. The gorge scenery is spectacular.",map:"La Portela de Valcarce, León, Spain"},
+    {title:"The climb to O Cebreiro — a rite of passage",body:"Starting from La Portela de Valcarce, the ascent to O Cebreiro gains ~700m over 8km. By bike it is brutal and magnificent. Ancient chestnut forests, misty meadows, cattle with bells, stone walls. This climb — beginning right from your hotel door — is the emotional high point of the entire bike stage.",map:"O Cebreiro, Lugo, Spain"},
+    {title:"Furelos Bridge — Puente de San Xoán (✦ waypoint)",body:"About 1.5km before Melide, the medieval Puente de San Xoán de Furelos crosses the Furelos river. First mentioned in the 12th-century Codex Calixtinus, it spans 50 meters with four Romanesque arches built from dark local stone. One of the most photographed spots on the Camino.",map:"Puente de San Xoán de Furelos, Furelos, Melide, A Coruña, Spain"},
+    {title:"Sarria — Rúa Maior staircase at dusk",body:"Sarria's main pilgrim street climbs a long stone staircase through the medieval upper town to the church. Walk it at sunset — the light on the stone, pilgrims arriving and resting on the steps, views over the valley below.",map:"Rúa Maior, Sarria, Lugo, Spain"},
+  ],
+  tip:"Bring a stone from home for the Cruz de Ferro — or pick one up in León. The climb from La Portela de Valcarce to O Cebreiro begins right from your hotel door — start early and fuel up well. For Melide, Pulpería Ezequiel (Av. Lugo 48) is open all day — no reservations taken. In May, Galicia can be rainy — pack a rain jacket on the bike."},
+
+  {id:"santiago",label:"Santiago",eyebrow:"May 21 – 22",title:"Santiago de <em>Compostela</em>",tags:[{cls:"tag-dates",text:"May 21–22"},{cls:"tag-sleep",text:"1 night"},{cls:"tag-stage",text:"Bus to Porto 5pm May 22"}],
+  faith:[
+    {title:"Pilgrim Mass at the Cathedral",body:"The Pilgrim Mass is held daily at noon. On special feast days, the Botafumeiro — one of the largest incense burners in the world — is swung across the transept in a breathtaking arc. Even without it, this Mass is the spiritual culmination of your pilgrimage.",map:"Catedral de Santiago de Compostela, Spain"},
+    {title:"Embrace of Saint James and the Crypt",body:"After Mass or at any open hour, climb behind the high altar to embrace the 13th-century statue of Santiago, then descend to the crypt where his relics are kept. These are the two great acts of pilgrimage completion.",map:"Catedral de Santiago de Compostela, Spain"},
+    {title:"Portico de la Gloria",body:"Completed in 1211 by Master Mateo — the greatest Romanesque sculptural ensemble in Europe. Stand before it slowly.",map:"Pórtico de la Gloria, Catedral de Santiago de Compostela, Spain"},
+    {title:"The Compostela certificate",body:"Collect your official pilgrim certificate at the Pilgrim Office (Rúa das Carretas, 33) on the morning of May 22. Bring your credencial with all stamps. This document, in Latin, has been given to pilgrims reaching Santiago since the 12th century.",map:"Oficina del Peregrino, Santiago de Compostela, Spain"},
+  ],
+  food:[
+    {title:"Mercado de Abastos — celebration lunch",body:"Santiago's covered market is alive with Galician seafood. Buy fresh percebes, navajas, zamburiñas, and berberechos from the stalls and eat them standing at the bar with Albariño wine. The definitive Galician seafood experience.",map:"Mercado de Abastos, Santiago de Compostela, Spain"},
+    {title:"A Tafona by Lucía Freitas",body:"Chef Lucía Freitas's Michelin-starred restaurant reopened in May 2025 after a brief hiatus. Modern Galician cuisine rooted in the sea and the land. Book as far in advance as possible. Located at Rúa da Virxe da Cerca, 7.",map:"A Tafona, Rúa da Virxe da Cerca 7, Santiago de Compostela, Spain"},
+    {title:"Albariño wine everywhere",body:"The great white wine of Galicia — crisp, aromatic, slightly saline, born to be drunk with shellfish. Order it everywhere from now until Porto.",map:"Rúa do Franco, Santiago de Compostela, Spain"},
+    {title:"Tarta de Santiago from Confitería Mora",body:"The almond cake with the Cross of Santiago in powdered sugar. Buy one from Confitería Mora near the Cathedral — the real ones are made entirely of ground almonds, eggs, and sugar.",map:"Confitería Mora, Santiago de Compostela, Spain"},
+  ],
+  adventure:[
+    {title:"Sunset at Alameda Park — Paseo da Ferradura",body:"The park just west of the old city has a terrace with a famous view of the two Cathedral spires. Go at sunset on May 21 — you'll have earned this view completely.",map:"Parque Alameda, Santiago de Compostela, Spain"},
+    {title:"Old City wandering",body:"The historic center is a UNESCO World Heritage Site. Wander the covered arcades of Rúa do Franco and Rúa da Raíña, find the hidden gardens of the Alameda Park, and climb to the park overlook.",map:"Praza do Obradoiro, Santiago de Compostela, Spain"},
+  ],
+  tip:"The Pilgrim Office can have long queues — arrive when it opens at 9am. The Museo das Peregrinacións on Praza das Praterías tells the full 1,200-year history of the Camino."},
+
+  {id:"porto",label:"Porto",eyebrow:"May 22 – 24",title:"Porto, <em>Portugal</em>",tags:[{cls:"tag-dates",text:"May 22–24"},{cls:"tag-sleep",text:"2 nights"},{cls:"tag-stage",text:"Fly home May 24"}],
+  faith:[
+    {title:"São Bento Station azulejo mosaics",body:"The entry hall of São Bento station is lined with 20,000 hand-painted azulejo tiles depicting scenes from Portuguese history and religious life. One of the greatest tile works in the world. Go first thing in the morning before crowds arrive.",map:"Estação de São Bento, Porto, Portugal"},
+    {title:"Sé do Porto — Cathedral and cloister",body:"The Romanesque-Gothic cathedral first built in the 12th century. The cloister, lined with 18th-century azulejo panels depicting the Song of Solomon, is strikingly beautiful. The silver altarpiece in the Chapel of the Holy Sacrament is extraordinary.",map:"Sé do Porto, Portugal"},
+    {title:"Igreja de São Francisco — the gold church",body:"Perhaps the most astonishing church interior in Portugal — a Gothic structure whose walls are covered in 400kg of gold leaf baroque gilded carvings from floor to ceiling. Overwhelming and magnificent. The ossuary beneath adds a memento mori dimension.",map:"Igreja de São Francisco, Porto, Portugal"},
+  ],
+  food:[
+    {title:"Francesinha at Café Santiago — mandatory",body:"Porto's iconic sandwich — a layer cake of cured meats and melted cheese, doused in spiced beer and tomato sauce, topped with a fried egg. Open since 1959, Café Santiago at Rua Passos Manuel 226 is the benchmark. Eat it for lunch on May 23. This is not optional.",map:"Café Santiago, Rua Passos Manuel 226, Porto, Portugal"},
+    {title:"Pastel de Nata at Manteigaria",body:"The definitive Portuguese custard tart, eaten warm with cinnamon and espresso. Manteigaria has two Porto locations — Rua Alexandre Braga 2 and Rua dos Clérigos 37. Open kitchen where you can watch every tart being made. Multiple visits required.",map:"Manteigaria, Rua dos Clérigos 37, Porto, Portugal"},
+    {title:"Port wine tasting at Graham's Lodge, Gaia",body:"Cross the Dom Luís I bridge to Vila Nova de Gaia and visit Graham's, Ramos Pinto, or Taylor's for excellent tours with tastings. A glass of 20-year Tawny with a view over the Douro is a triumphant way to end the pilgrimage.",map:"Graham's Port Lodge, Vila Nova de Gaia, Portugal"},
+    {title:"Mercado do Bolhão",body:"Porto's historic iron-and-glass market, recently renovated. Buy presunto, queijo da Serra, local honey, and pasteis de bacalhau for a market lunch on May 23.",map:"Mercado do Bolhão, Porto, Portugal"},
+    {title:"Cantinho do Avillez — Bacalhau à Brás",body:"Portugal's codfish in its most beloved preparation — shredded salt cod with eggs, onions, and crispy potatoes. Chef José Avillez's Porto outpost does a refined version of this national soul food.",map:"Cantinho do Avillez, Porto, Portugal"},
+  ],
+  adventure:[
+    {title:"Dom Luís I Bridge upper deck walk",body:"Walk the upper deck of the double-decker iron bridge for panoramic views of the Douro, rabelo boats, and Port wine lodges. Then cross to Gaia and walk the riverside promenade back for the best view of Porto's famous hillside.",map:"Ponte Dom Luís I, Porto, Portugal"},
+    {title:"Livraria Lello bookshop",body:"One of the most beautiful bookshops in the world — a 1906 neo-Gothic interior with a swooping red staircase. Takes only 20 minutes and the architecture genuinely earns its reputation. Go early morning.",map:"Livraria Lello, Porto, Portugal"},
+    {title:"Miradouro da Serra do Pilar at sunset",body:"The elevated viewpoint in Gaia, above the bridge, offers the best sunset view over Porto and the Douro. On a clear May evening, this is a beautiful moment to close the journey.",map:"Miradouro Serra do Pilar, Vila Nova de Gaia, Portugal"},
+  ],
+  tip:"Porto is walkable but hilly. The Metro line E (violet) runs to Francisco Sá Carneiro Airport — allow 2+ hours before departure May 24. The Francesinha is mandatory. Don't leave Porto without one."}
+];
+
+// ─────────────────────────────────────────
+// DAILY PRAYERS DATA
+// ─────────────────────────────────────────
+const prayers = [
+  {
+    date:"May 9", day:1, location:"Arriving in Lourdes, France",
+    name:"Prayer to Our Lady of Lourdes",
+    theme:"Arrival at the Grotto — opening the heart of pilgrimage",
+    text:`<p>O ever-Immaculate Virgin, Mother of Mercy, Health of the Sick, Refuge of Sinners, Comforter of the Afflicted — you know our wants, our troubles, our sufferings. Look upon us with mercy.</p>
+<p>By appearing in the Grotto of Lourdes, you were pleased to make it a privileged sanctuary, whence you dispense your favors; and already many sufferers have obtained the cure of their infirmities, both spiritual and corporal. We come, therefore, with the most unbounded confidence to implore your maternal intercession.</p>
+<p>O loving Mother, receive us as we arrive at this holy place. Open our hearts for what these days will hold. Let us see with the eyes of faith, hear with the ears of grace, and touch the rock of this Grotto with the hands of trust.</p>
+<p>Our Lady of Lourdes, pray for us.<br>Saint Bernadette, pray for us. Amen.</p>
+<p class="prayer-source">Traditional Prayer to Our Lady of Lourdes</p>`
+  },
+  {
+    date:"May 10", day:2, location:"Lourdes — day of immersion",
+    name:"Prayer Before the Baths and the Procession",
+    theme:"Healing, surrender, and the Torchlight Procession",
+    text:`<p>Lord Jesus, today we come to the water. Not the water of the Jordan where You were baptized, but the water that Your Mother called forth from this rock, in this place, for the sick and the sinful and the searching.</p>
+<p>We come without perfect words and without complete understanding. We come only with ourselves — our burdens, our intentions, the names of those we carry in our hearts. Let the waters of Lourdes touch what medicine and will cannot reach.</p>
+<p>This evening, as we walk with candles in the great procession, let us remember: You are the Light of the World. Every candle we hold is borrowed from Your light. May we walk slowly, singing what our mouths can manage, offering what our hearts are holding.</p>
+<p>Ave Maria, gratia plena.<br>Dominus tecum.<br>Benedicta tu in mulieribus,<br>et benedictus fructus ventris tui, Jesus.<br>Sancta Maria, Mater Dei,<br>ora pro nobis peccatoribus,<br>nunc et in hora mortis nostrae. Amen.</p>
+<p class="prayer-source">Traditional Ave Maria, with reflection drawn from the spirituality of Lourdes</p>`
+  },
+  {
+    date:"May 11", day:3, location:"Lourdes to Saint-Jean-Pied-de-Port",
+    name:"Pilgrim's Blessing Before the Road",
+    theme:"Departure — receiving the commission to walk",
+    text:`<p>In the name of Our Lord Jesus Christ, receive this journey. Accept it as your pouch and your staff — symbol of the way you have chosen and the road that now chooses you.</p>
+<p>O God, who brought Your servant Abraham out of the land of the Chaldeans, protecting him in his wanderings, who guided the Hebrew people across the desert — we ask that You watch over us, Your servants, as we walk in the love of Your name toward Santiago de Compostela.</p>
+<p>Be for us our Companion on the walk,<br>Our guide at the crossroads,<br>Our breath in our weariness,<br>Our protection in danger,<br>Our shelter on the path,<br>Our shade in the heat,<br>Our light in the darkness,<br>Our consolation in our discouragements,<br>And our strength in our intentions.</p>
+<p>So that with Your guidance we may arrive, safe and sound, at the end of the Road — enriched with grace and virtue — and return safely to our homes filled with joy. In the name of Jesus Christ, our Lord. Amen.</p>
+<p>Apostle Santiago, pray for us. Santa María, pray for us.</p>
+<p class="prayer-source">Pilgrim's Prayer from the Pilgrim Mass of the Camino de Santiago, traditional</p>`
+  },
+  {
+    date:"May 12", day:4, location:"Crossing the Pyrenees — SJPP to Roncesvalles",
+    name:"Prayer for the Mountain Crossing",
+    theme:"The Napoleon Route — offering the effort of the body",
+    text:`<p>O my God, I offer You this day — its walking and its rest, its beauty and its pain. I unite it to the sacrifice of Christ, offered on the Cross and renewed in every Mass.</p>
+<p>For the intentions I carry in my heart. For the people whose names I whispered at the Grotto of Lourdes. For the Church and for the world. Through the intercession of Saint James, patron of pilgrims, may this day's journey bring me closer to You.</p>
+<p>Today the mountains are before us. The Pyrenees do not care whether we are ready. They ask only that we begin — one step at a time, one breath at a time. This is the first great lesson of the Camino.</p>
+<p>Lord, let our legs be strong and our hearts be stronger. Let us reach Roncesvalles before nightfall, and let us arrive not just in body but in spirit — ready for the Pilgrim Mass, ready for the first great threshold of this journey.</p>
+<p>Blessed are you, pilgrim, if what concerns you most is not to arrive — but to arrive with others. Amen.</p>
+<p class="prayer-source">Morning Offering of the Camino; Beatitudes of the Pilgrim (traditional)</p>`
+  },
+  {
+    date:"May 13", day:5, location:"Roncesvalles to Pamplona",
+    name:"Prayer of Saint James the Apostle",
+    theme:"Walking in the footsteps of pilgrims for 900 years",
+    text:`<p>Saint James, Apostle, chosen among the first — you were the first to drink the Cup of the Master, and you are the great protector of pilgrims.</p>
+<p>You left your nets without hesitation when He called. You climbed Tabor and saw His glory. You slept in the garden when He needed you most — and yet He called you beloved still. You are the patron of pilgrims precisely because you were so human: bold and failing, faithful and afraid.</p>
+<p>Walk with us today on the road your name was given to. Let the land of Navarra speak to us of something we do not yet know. Let each town we pass through remind us that others have walked this before us — saints and sinners, knights and shepherds, the sick seeking healing and the strong seeking humility.</p>
+<p>Make us strong in faith and happy in hope on our pilgrim journey, following the path of Christian life. Sustain us so that we may finally reach the glory of God the Father.</p>
+<p>Santiago, pray for us. Amen.</p>
+<p class="prayer-source">Traditional Pilgrim Prayer to Saint James; Santiago Pilgrims' Office, official text</p>`
+  },
+  {
+    date:"May 14", day:6, location:"Pamplona to Logroño",
+    name:"Prayer on the Road Through Navarra",
+    theme:"The open plain — learning to walk without destination",
+    text:`<p>My Lord God, I have no idea where I am going. I do not see the road ahead of me. I cannot know for certain where it will end. Nor do I really know myself, and the fact that I think that I am following Your will does not mean that I am actually doing so.</p>
+<p>But I believe that the desire to please You does in fact please You. And I hope that I have that desire in all that I am doing. I hope that I will never do anything apart from that desire.</p>
+<p>And I know that if I do this, You will lead me by the right road though I may know nothing about it. Therefore I will trust You always — though I may seem to be lost and in the shadow of death. I will not fear, for You are ever with me, and will never leave me to face my perils alone.</p>
+<p>Today, on the road through La Rioja, let the rhythm of the walk be prayer enough. Let the vineyards preach to us of patience. Let the arrival in Logroño be a small image of the greater arrival we are walking toward. Amen.</p>
+<p class="prayer-source">Thomas Merton, "Thoughts in Solitude" — beloved Camino prayer</p>`
+  },
+  {
+    date:"May 15", day:7, location:"Logroño to Burgos",
+    name:"Prayer Before the Cristo de Burgos",
+    theme:"The Meseta — entering the great silence of Castile",
+    text:`<p>Lord Jesus, today the road enters Castile — the great meseta, the wide plateau, the land of wind and wheat and sky. There is nowhere to hide on the meseta. The horizon stretches in all directions and the sky becomes enormous. Pilgrims call it the crucible.</p>
+<p>At the end of today's road stands a crucifix. The Cristo de Burgos — 700 years old, hauntingly lifelike, venerated by pilgrims since the 14th century. Before it, men and women have knelt for seven centuries and said simply: I am here. I do not have the words.</p>
+<p>So we pray without great words today. We walk. We offer each step. We carry the names of those who need something we cannot give them — and we bring those names to You, who can.</p>
+<p>Lord, as we enter Burgos this afternoon, let us kneel before Your image and be still. No petition. No agenda. Just the silence of having arrived, and the offering of the road that brought us here. Amen.</p>
+<p class="prayer-source">Original Camino reflection</p>`
+  },
+  {
+    date:"May 16", day:8, location:"Burgos to León",
+    name:"Prayer at the Pulchra Leonina",
+    theme:"Arrival in León — stained glass and the light of faith",
+    text:`<p>O Lord our God, how majestic is Your name in all the earth — and how luminous in the glass of León.</p>
+<p>This afternoon we will stand inside a cathedral that is almost entirely made of light. One thousand eight hundred square meters of medieval stained glass, the most of any cathedral in the world. When the afternoon sun enters those windows, the stone itself seems to dissolve into color.</p>
+<p>Faith is like that. It does not remove the stone walls of our lives — the hard facts, the grief, the uncertainty. But it transfigures them. It makes them luminous from within.</p>
+<p>Lord, as we complete the walking portion of this journey and prepare for the bicycle road to Santiago, let León be a moment of transfiguration for us. Let us see the stained glass and understand: You do not promise to remove the stone. You promise to fill it with light.</p>
+<p>Tomorrow the Camino on wheels begins. Tonight, let us rest in León, in the glow. Amen.</p>
+<p class="prayer-source">Original Camino reflection, with reference to Psalm 8:1</p>`
+  },
+  {
+    date:"May 17", day:9, location:"León — Bike Tour begins · Rabanal del Camino (Night 1)",
+    name:"Prayer at La Virgen del Camino and the Cruz de Ferro Stone",
+    theme:"The Patroness of León sends you west — the stone you will carry",
+    text:`<p>O Virgin of the Way — Patrona de León — you appeared to a shepherd on this very road in 1505 and told him: build a church here, for travelers on their way to Santiago. You have been blessing pilgrims departing this road ever since.</p>
+<p>Today we pass your Basilica. We stop. We enter. We pray.</p>
+<p>Bless these bikes. Bless these bodies. Bless the stone we are carrying for the Cruz de Ferro — this small weight in our pocket that represents something heavier we have been carrying in our hearts. Give us the courage to leave it at the foot of the Cross when we arrive.</p>
+<p>And tonight in Rabanal, let the Gregorian chant of the Benedictine monks be our Vespers — our evening offering of the day's riding — given to God in eight-century-old tones rising from a Romanesque church in a mountain village of fifty souls.</p>
+<p>Nuestra Señora del Camino, ruega por nosotros.<br>Our Lady of the Way, pray for us. Amen.</p>
+<p class="prayer-source">Original prayer for La Virgen del Camino, with reference to the Cruz de Ferro tradition</p>`
+  },
+  {
+    date:"May 18", day:10, location:"Rabanal → Cruz de Ferro → La Portela de Valcarce (Night 2)",
+    name:"Prayer at the Cruz de Ferro",
+    theme:"Leaving the stone — releasing what we carry",
+    text:`<p>Lord, I have carried this stone from home. It is small — a few grams — but it represents something that weighs more than rock.</p>
+<p>At the foot of this Cross, at 1,504 meters, on the highest point of the Camino Francés, I lay it down. I add it to the mountain of stones left by millions of pilgrims before me — each one a burden, a prayer, a name, a grief, a longing.</p>
+<p>I do not need to explain what this stone means. You know. You have always known. I leave it here not because the weight will disappear — but because I am choosing to walk forward without it. I am choosing to trust You with what I could not carry to Santiago.</p>
+<p>Lord of pilgrims, Lord of mountains, Lord of the Cross — receive this stone. Receive what it stands for. And let me descend from this mountain into the valley of El Bierzo lighter, freer, more open to whatever You have prepared along the road ahead.</p>
+<p>Santiago, pray for us. Holy Cross, be our hope. Amen.</p>
+<p class="prayer-source">Original prayer for the Cruz de Ferro, drawn from the tradition of the Camino Francés</p>`
+  },
+  {
+    date:"May 19", day:11, location:"La Portela → O Cebreiro → Sarria (Night 3)",
+    name:"Prayer on the Climb to O Cebreiro",
+    theme:"The great ascent into Galicia — the Grail chalice and the Door of Forgiveness",
+    text:`<p>Lord, this climb is not small. Seven hundred meters. Eight kilometers. From the valley floor to the clouds.</p>
+<p>But pilgrims have climbed this road for twelve centuries — on foot, in rain, in snow, in faith — and we climb it today on bikes, in May, with the chestnut forests greening around us and the cattle bells ringing from the meadows above.</p>
+<p>At the top: the oldest church on this road. The Grail chalice. The mist. The first view of Galicia — green, ancient, oceanic, waiting.</p>
+<p>And along the way, in Villafranca del Bierzo: the Puerta del Perdón — the Door of Forgiveness. The door that medieval pilgrims who could go no further were permitted to touch, receiving the indulgence of Santiago without reaching Santiago. Lord, let us touch it. Not because we cannot continue, but because we need forgiveness as much as anyone who ever stopped here.</p>
+<p>O Cebreiro, today. The Grail. The door of Galicia. The summit of this pilgrimage.</p>
+<p>Come, Holy Spirit. Blow through these mountain passes. Amen.</p>
+<p class="prayer-source">Original prayer for the O Cebreiro ascent, with reference to Villafranca del Bierzo's Puerta del Perdón</p>`
+  },
+  {
+    date:"May 20", day:12, location:"Sarria → Furelos Bridge → Melide (Night 4)",
+    name:"Prayer on the Bridge of Furelos",
+    theme:"The last 100km — Galicia in full, the medieval bridge, the final approach",
+    text:`<p>Lord, from Sarria we have walked and ridden the final 100km. Every step from here is officially recognized, stamped, documented — a testimony that we completed what we set out to do.</p>
+<p>But You are not interested in the stamp. You are interested in the pilgrim.</p>
+<p>Today we will cross the Puente de San Xoán de Furelos — a bridge first mentioned in the Codex Calixtinus, the twelfth-century pilgrim's guidebook, the first travel guide ever written. Pilgrims have been crossing this bridge for 900 years. The dark stone arches and the sound of the Furelos river beneath are unchanged.</p>
+<p>Stand with us on that bridge, Lord. Let us look upstream — at the water coming from the mountains we have crossed — and downstream, toward Melide and its octopus and its cruceiro and its convergence of Camino routes. We are almost there.</p>
+<p>Blessed are you, pilgrim, if you discover that one step back to help another is more valuable than a hundred forward without seeing what is at your side. Amen.</p>
+<p class="prayer-source">Beatitudes of the Pilgrim (traditional, Camino de Santiago); reflection on the Codex Calixtinus</p>`
+  },
+  {
+    date:"May 21", day:13, location:"Melide → Arzúa → Monte do Gozo → Santiago de Compostela",
+    name:"Prayer of Arrival — Psalm 122 for Pilgrims",
+    theme:"The final day — Monte do Gozo and the Cathedral",
+    text:`<p><em>I rejoiced when they said to me:<br>"Let us go up to the house of the Lord."<br>And now our feet are standing<br>within your gates, Jerusalem.</em></p>
+<p>For Camino pilgrims, Jerusalem is Santiago. The house of the Lord is the Cathedral of Saint James. And these words — sung by Jewish pilgrims ascending to the Temple in Jerusalem for two thousand years before Christ — are our words today, on the final kilometers from Arzúa to Monte do Gozo to the Praza do Obradoiro.</p>
+<p>Lord, we are almost there. At Monte do Gozo — the Hill of Joy — we will see the Cathedral towers for the first time. Medieval pilgrims wept at this sight. We may also.</p>
+<p>Let the arrival in the Cathedral be unhurried. Let the Pilgrim Mass be a Mass we remember. Let the embrace of Saint James and the descent to his crypt be the completion of everything we began at Lourdes fifteen days ago.</p>
+<p>We did not walk this road alone. We will not arrive alone. We arrive as two, as pilgrims, as Catholics, as people who said yes to this road and were changed by it.</p>
+<p>Santiago, we are here. Amen.</p>
+<p class="prayer-source">Psalm 122 (121), traditional Camino prayer of arrival</p>`
+  },
+  {
+    date:"May 22", day:14, location:"Santiago de Compostela — final morning before Porto",
+    name:"Prayer of Completion at the Tomb of Saint James",
+    theme:"Receiving the Compostela — thanksgiving and sending forth",
+    text:`<p>Lord, I have arrived. This journey was Yours from the beginning — the call, the preparation, the walking and riding, the arrivals and departures, the difficulties and the gifts. I offer it all to You now at the tomb of Your Apostle, united to the Mass that has been offered here, united to every pilgrim who has stood in this place before me, and to every pilgrim who will stand here after.</p>
+<p>What do I bring You? I bring a credencial stamped in Lourdes and Saint-Jean and Roncesvalles and a dozen places between. I bring legs that have climbed the Pyrenees and the Valcarce gorge and O Cebreiro. I bring a stone I left at the Cruz de Ferro and the memory of Gregorian chant in Rabanal. I bring Galician rain and octopus in Melide and the tears on someone's face at the first sight of the Cathedral towers.</p>
+<p>I bring all of it to You. It is not much. It is everything.</p>
+<p>Send us home changed, Lord. Not dramatically — but quietly, firmly, the way the Camino changes things: one step at a time, one day at a time, the way water shapes stone.</p>
+<p>Saint James, pray for us.<br>Our Lady of the Way, pray for us.<br>May we carry home what we have been given here. Amen.</p>
+<p class="prayer-source">Traditional Pilgrim prayer of arrival at Santiago; original reflection</p>`
+  },
+  {
+    date:"May 23", day:15, location:"Porto, Portugal",
+    name:"Prayer of Gratitude — the Journey's End",
+    theme:"Porto — thanksgiving on the banks of the Douro",
+    text:`<p>Lord of the journey, Lord of the road — we give You thanks.</p>
+<p>For Lourdes and its Grotto, where Mary appeared and the waters still run. For the Pyrenees crossed in a single day. For Roncesvalles in the beech forest at dusk. For Pamplona and white asparagus and the ancient city walls. For Logroño and Rioja and the Calle Laurel at 8pm on a Friday. For Burgos and its Cristo and its lamb. For León and its stained glass turning to color in the afternoon sun. For the Basilica of La Virgen del Camino eight kilometers into the road west.</p>
+<p>For the Cruz de Ferro and the stone we left there. For the Benedictine monks of Rabanal singing Vespers in Gregorian chant. For the climb to O Cebreiro and the Grail chalice and the first sight of Galicia. For the Furelos bridge and its dark Romanesque arches. For the octopus in Melide. For Monte do Gozo and the moment the towers appeared.</p>
+<p>For the Compostela, received in Latin, in our names, as pilgrims, as has been done since the 12th century.</p>
+<p>And now Porto — the Douro, the Port wine, the azulejo tiles, the gold church, the custard tarts. A last beautiful city before home.</p>
+<p>We go home full. Thank You. Amen.</p>
+<p class="prayer-source">Original prayer of thanksgiving</p>`
+  },
+  {
+    date:"May 24", day:16, location:"Porto — flying home",
+    name:"Pilgrim's Blessing for the Return",
+    theme:"Going home — carrying the Camino forward",
+    text:`<p>Blessed are you, pilgrim, if you discover that the authentic Camino begins when it is completed.</p>
+<p>The road does not end at the Cathedral, or at the Pilgrim Office, or at the Porto airport gate. The road continues. It continues in the kitchen and the workplace and the difficult conversation and the ordinary Tuesday morning. The Camino is not a thing that happened. It is a thing that is happening, still, inside you.</p>
+<p>Lord, as we board this flight and go home — go home to Austin, to ordinary life, to the people we love — let us carry the Camino in our bones. Not as a memory to be archived but as a way of moving through the world: slowly, attentively, with open hands, with the pilgrim's willingness to receive what the road offers.</p>
+<p>May the road rise up to meet you.<br>May the wind be always at your back.<br>May the sun shine warm upon your face,<br>and the rains fall soft upon your fields.<br>And until we meet again,<br>may God hold you in the palm of His hand.</p>
+<p>Buen Camino. Amen.</p>
+<p class="prayer-source">Beatitudes of the Pilgrim (Camino tradition); traditional Irish blessing</p>`
+  }
+];
+
+// ─────────────────────────────────────────
+// BUILD STOP GUIDE
+// ─────────────────────────────────────────
+const nav = document.getElementById('mainNav');
+const content = document.getElementById('mainContent');
+stops.forEach((stop, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'nav-btn' + (i===0?' active':'');
+  btn.textContent = stop.label;
+  btn.onclick = () => {
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.stop-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById('panel-'+stop.id);
+    panel.classList.add('active');
+    panel.style.display='none';
+    requestAnimationFrame(()=>{panel.style.display=''});
+    document.querySelector('.nav-wrap').scrollIntoView({behavior:'smooth',block:'nearest'});
+  };
+  nav.appendChild(btn);
+
+  const panel = document.createElement('div');
+  panel.className='stop-panel'+(i===0?' active':'');
+  panel.id='panel-'+stop.id;
+  const tagsHTML=(stop.tags||[]).map(t=>`<span class="meta-tag ${t.cls}">${t.text}</span>`).join('');
+
+  let routeHTML='';
+  if(stop.isBike && stop.routeNodes){
+    const nodes=stop.routeNodes.map(n=>`<div class="route-node"><div class="node-dot dot-${n.type}"></div><div class="node-content"><div class="node-name">${n.label}</div><div class="node-detail">${n.detail}</div></div></div>`).join('');
+    routeHTML=`<div class="section"><div class="section-heading"><div class="section-icon icon-adventure">🗺</div><div class="section-title">Route Overview</div></div><div style="display:flex;flex-direction:column;gap:6px;margin-bottom:1rem"><div class="route-visual">${nodes}</div><div style="font-size:12px;color:var(--ink-muted);padding:8px 0;display:flex;gap:16px;flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:var(--sage);display:inline-block;border:2px solid white;flex-shrink:0"></span>Sleep stop</span><span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:var(--gold);display:inline-block;border:2px solid white;flex-shrink:0"></span>✦ Waypoint</span><span style="font-style:italic">~320km · 5 nights · 10 waypoints</span></div></div></div>`;
+  }
+
+  let tipHTML='';
+  if(stop.tip){tipHTML=`<div class="section"><div class="section-heading"><div class="section-icon icon-tip">💡</div><div class="section-title">Pilgrim Tip</div></div><div class="tip-box"><div class="tip-body">${stop.tip}</div></div></div>`;}
+
+  panel.innerHTML=`<div class="stop-header"><div class="stop-eyebrow">${stop.eyebrow}</div><h2 class="stop-title">${stop.title}</h2><div class="stop-meta">${tagsHTML}</div></div>${routeHTML}${sectionHTML('✝','icon-faith','Pilgrimage & Spiritual',stop.faith)}${sectionHTML('☕','icon-food','Eat & Drink',stop.food)}${sectionHTML('◈','icon-adventure','Explore & Experience',stop.adventure)}${tipHTML}`;
+  content.appendChild(panel);
+});
+
+// ─────────────────────────────────────────
+// BUILD PRAYERS
+// ─────────────────────────────────────────
+const grid = document.getElementById('prayerGrid');
+const today = new Date();
+const tripStart = new Date('2026-05-09');
+
+prayers.forEach((p, i) => {
+  const prayerDate = new Date('2026-05-0' + (8+i+1) > 9 ? '2026-05-' + (8+i+1) : '2026-05-0' + (8+i+1));
+  const pDate = new Date(2026, 4, 8+i+1); // May is month 4 (0-indexed)
+  const isToday = today.getFullYear()===2026 && today.getMonth()===4 && today.getDate()===(8+i+1);
+
+  const card = document.createElement('div');
+  card.className = 'prayer-card' + (isToday ? ' today open' : '');
+
+  card.innerHTML=`<div class="prayer-card-header" onclick="togglePrayer(this.parentElement)">
+    <div class="prayer-card-left">
+      <div class="prayer-day-badge">${p.day}</div>
+      <div>
+        <div class="prayer-date">${p.date} · ${p.location}</div>
+        <div class="prayer-name">${p.name}</div>
+        <div class="prayer-location">${p.theme}</div>
+      </div>
+    </div>
+    <div class="prayer-chevron">›</div>
+  </div>
+  <div class="prayer-body">${p.text}</div>`;
+
+  // Apply CSS card positioning
+  if(i===0) card.style.borderRadius='8px 8px 0 0';
+  if(i===prayers.length-1){card.style.borderRadius='0 0 8px 8px';card.style.borderBottom='1px solid var(--border)';}
+
+  grid.appendChild(card);
+
+  // Auto-open today
+  if(isToday){
+    card.querySelector('.prayer-body').style.display='block';
+  }
+});
+
+function togglePrayer(card){
+  const body=card.querySelector('.prayer-body');
+  const isOpen=card.classList.contains('open');
+  card.classList.toggle('open',!isOpen);
+  body.style.display=isOpen?'none':'block';
+}
+
+
+// Register Service Worker for offline support (works when hosted on https://)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('SW registered, scope:', reg.scope))
+      .catch(err => console.log('SW registration skipped:', err.message));
+  });
+}
+
+</script>
+</body>
+</html>
