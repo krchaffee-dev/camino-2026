@@ -298,12 +298,23 @@ main{max-width:780px;margin:0 auto;padding:0 1rem 3rem}
 
 <div class="tab-bar">
   <button class="tab-btn active" id="tab-guide-btn" onclick="switchTab('guide',this)">📍 Guide</button>
+  <button class="tab-btn" id="tab-logistics-btn" onclick="switchTab('logistics',this)">🗺 Logistics</button>
   <button class="tab-btn" id="tab-prayers-btn" onclick="switchTab('prayers',this)">🙏 Daily Prayers</button>
 </div>
 
 <div class="tab-panel active" id="tab-guide">
   <nav class="nav-wrap"><div class="nav-scroll" id="mainNav"></div></nav>
   <main id="mainContent"></main>
+</div>
+
+
+<div class="tab-panel" id="tab-logistics">
+  <main style="max-width:780px;margin:0 auto;padding:1.5rem 1rem 4rem">
+    <div class="prayer-intro">
+      <strong>Your complete logistics at a glance.</strong> Accommodations, transport legs, and bike tour hotels — each with a Google Maps link for offline navigation. Luggage is picked up by Galician Roots at 8:00am each bike tour morning. Dinners 8:30–9:30pm, breakfasts 7:00–9:30am.
+    </div>
+    <div id="logisticsContent"></div>
+  </main>
 </div>
 
 <div class="tab-panel" id="tab-prayers">
@@ -509,6 +520,7 @@ const stops = [
   food:[
     {title:"Cocido Maragato in Astorga",body:"The signature dish of the Maragatería region — a hearty stew of chickpeas, various meats, chorizo, and vegetables, eaten in reverse order (meat first, then vegetables, then broth). A unique and famous dining ritual.",map:"Restaurante La Peseta, Astorga, Spain"},
     {title:"Mantecadas de Astorga",body:"Astorga's beloved small butter cakes, made since the 16th century. Every bakery sells them in gold-foil boxes. Excellent cycling fuel and a great gift to bring home.",map:"Astorga, León, Spain"},
+    {title:"Astorga Chocolate — the chocolate capital of Spain 🍫",body:"You're right to flag this — Astorga chocolate is mandatory. By 1914 the city had 49 chocolate factories; eight artisan producers survive today. Two essential stops: Chocolatier Peñín (Plaza Obispo Alcolea, 4 — steps from the Gaudí palace) is famous for their signature orange chocolate at 38% cocoa and handmade truffles. The Museo del Chocolate (Av. de la Estación, 16) is a delightful 45-minute museum in a former chocolate factory with original 19th-century machinery, gorgeous lithographic advertising posters, and a free tasting of three artisan chocolates at the end. Only €4 entry. Closed Mondays — open on your May 17 Sunday ride-through.",map:"Chocolatier Peñín, Plaza Obispo Alcolea 4, Astorga, León, Spain"},
     {title:"Mencía wine from El Bierzo — drink it here",body:"Hotel Valcarce sits in the heart of El Bierzo wine country. Mencía is earthy, violet-scented, and perfumed with wild herbs. Bodegas Pittacum and Dominio de Tares are benchmark producers. Ask for it by the glass at dinner in La Portela or nearby Villafranca.",map:"Villafranca del Bierzo, León, Spain"},
     {title:"Caldo Gallego at O Cebreiro",body:"After the brutal climb to O Cebreiro from La Portela de Valcarce, the bar at the summit serves caldo gallego — white bean, greens, and pork broth — that at 1,300m on a misty mountain morning is one of the most satisfying things you will ever eat.",map:"O Cebreiro, Lugo, Galicia, Spain"},
     {title:"Pulpería Ezequiel, Melide — mandatory",body:"Open daily 9:30am–midnight, the most famous octopus restaurant on the entire Camino Francés. Copper cauldrons, wooden plates. Order pulpo a feira with pan de maíz and a ceramic bowl of Ribeiro. Plan your cycling to arrive at lunch (12:30–1pm). This is not a meal — it is a sacrament. Located at Av. Lugo, 48, Melide.",map:"Pulpería Ezequiel, Avenida Lugo 48, Melide, A Coruña, Spain"},
@@ -523,6 +535,9 @@ const stops = [
     {title:"The climb to O Cebreiro — a rite of passage",body:"Starting from La Portela de Valcarce, the ascent to O Cebreiro gains ~700m over 8km. By bike it is brutal and magnificent. Ancient chestnut forests, misty meadows, cattle with bells, stone walls. This climb — beginning right from your hotel door — is the emotional high point of the entire bike stage.",map:"O Cebreiro, Lugo, Spain"},
     {title:"Furelos Bridge — Puente de San Xoán (✦ waypoint)",body:"About 1.5km before Melide, the medieval Puente de San Xoán de Furelos crosses the Furelos river. First mentioned in the 12th-century Codex Calixtinus, it spans 50 meters with four Romanesque arches built from dark local stone. One of the most photographed spots on the Camino.",map:"Puente de San Xoán de Furelos, Furelos, Melide, A Coruña, Spain"},
     {title:"Sarria — Rúa Maior staircase at dusk",body:"Sarria's main pilgrim street climbs a long stone staircase through the medieval upper town to the church. Walk it at sunset — the light on the stone, pilgrims arriving and resting on the steps, views over the valley below.",map:"Rúa Maior, Sarria, Lugo, Spain"},
+    {title:"Ponferrada — Templar Castle (Day 3 en route)",body:"Between Rabanal and La Portela, the Camino passes through Ponferrada — home to the magnificent Castillo Templario, a 13th-century Templar fortress whose walls rise dramatically above the Río Sil. Even a brief stop to photograph the towers from the bridge is worth it. If time allows, the interior can be visited in under an hour.",map:"Castillo de los Templarios, Ponferrada, León, Spain"},
+    {title:"Alto do Poio — the Galician high point (Day 4)",body:"After O Cebreiro, the Camino continues to the Alto do Poio — a secondary summit at 1,337m with sweeping views over the Galician hills. On a clear May morning this viewpoint is extraordinary — the landscape flattens into a patchwork of dark forest and green meadow as far as the eye can see, all the way toward Santiago in the far distance.",map:"Alto do Poio, Lugo, Galicia, Spain"},
+    {title:"Portomarín — drowned village on the Belesar reservoir (Day 5)",body:"On the stage from Sarria to Melide, the Camino descends dramatically to the medieval bridge over the Belesar reservoir at Portomarín. The entire original village was dismantled stone by stone and rebuilt on the hillside above the dam in 1962 — in drought years the ruins of the old village emerge from the water. The Romanesque-Gothic church of San Juan, which was also moved block by block, dominates the new town. An unusual and moving Camino stop.",map:"Portomarín, Lugo, Galicia, Spain"},
   ],
   tip:"Bring a stone from home for the Cruz de Ferro — or pick one up in León. The climb from La Portela de Valcarce to O Cebreiro begins right from your hotel door — start early and fuel up well. For Melide, Pulpería Ezequiel (Av. Lugo 48) is open all day — no reservations taken. In May, Galicia can be rainy — pack a rain jacket on the bike."},
 
@@ -842,6 +857,120 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.log('SW registration skipped:', err.message));
   });
 }
+
+
+// ─── LOGISTICS DATA ────────────────────────────────────────────────────
+const accommodations = [
+  { date:"Sat May 9 – Sun May 10", location:"Lourdes, France", name:"Home in Lourdes", type:"AirBnB", address:"46 Rue De Pau, 65100 Lourdes, France", map:"46 Rue De Pau, 65100 Lourdes, France" },
+  { date:"Mon May 11", location:"Saint-Jean-Pied-de-Port", name:"Path to the Stars", type:"Hostel", address:"21 Rue D'Espagne, 64220 St. Jean Pied de Port, France", map:"21 Rue D'Espagne, 64220 Saint-Jean-Pied-de-Port, France" },
+  { date:"Tue May 12", location:"Roncesvalles, Spain", name:"Albergue de Peregrinos", type:"Hostel", address:"Calle Ntra. Sra. de Roncesvalles, 10, 31650 Roncesvalles, Navarra", map:"Albergue de Peregrinos, Roncesvalles, Navarra, Spain" },
+  { date:"Wed May 13", location:"Pamplona, Spain", name:"Pension Txapitela", type:"Apartment", address:"Calle Chapitela 16, 1, 31001 Pamplona, Spain", map:"Calle Chapitela 16, 31001 Pamplona, Spain" },
+  { date:"Thu May 14", location:"Logroño, Spain", name:"Albergue San Nicolas", type:"Hostel", address:"C. Marqués de San Nicolás, 102, 26001 Logroño, La Rioja, Spain", map:"Calle Marqués de San Nicolás 102, 26001 Logroño, Spain" },
+  { date:"Fri May 15", location:"Burgos, Spain", name:"Hostel Catedral Burgos", type:"Hostel", address:"Pl. Huerto del Rey, 5, 09003 Burgos, Spain", map:"Plaza Huerto del Rey 5, 09003 Burgos, Spain" },
+  { date:"Sat May 16", location:"León, Spain", name:"Hotel La Posada Regia", type:"Hotel", address:"Calle Regidores, 9-11, 24003 León, Spain", map:"Hotel La Posada Regia, Calle Regidores 9, León, Spain", bikeNote:"🚴 Bicycles waiting at hotel on arrival" },
+  { date:"Sun May 17", location:"Rabanal del Camino", name:"Hotel Rural Casa Indie", type:"Hotel", address:"C. Medio, 4A, 24722 Rabanal del Camino, León, Spain", map:"Hotel Rural Casa Indie, Calle Medio 4A, Rabanal del Camino, Spain", bikeNote:"🚴 Vespers 7:30pm · Luggage pickup 8:00am" },
+  { date:"Mon May 18", location:"La Portela de Valcarce", name:"Hotel Valcarce", type:"Hotel", address:"A-6, 419-420, 24520 La Portela de Valcarce, León, Spain", map:"Hotel Valcarce, La Portela de Valcarce, León, Spain", bikeNote:"🚴 Cruz de Ferro today · Luggage pickup 8:00am" },
+  { date:"Tue May 19", location:"Sarria, Spain", name:"Hotel Mar de Plata", type:"Hotel", address:"Rúa Formigueiros, 5, 27600 Sarria, Lugo, Spain", map:"Hotel Mar de Plata, Rúa Formigueiros 5, Sarria, Spain", bikeNote:"🚴 Get 2 stamps in Sarria · Luggage pickup 8:00am" },
+  { date:"Wed May 20", location:"Melide, Spain", name:"Hotel Lux Melide", type:"Hotel", address:"Rúa Cantón San Roque, 5, 15800 Melide, A Coruña, Spain", map:"Hotel Lux Melide, Rúa Cantón San Roque 5, Melide, Spain", bikeNote:"🚴 Pulpería Ezequiel lunch · Luggage pickup 8:00am" },
+  { date:"Thu May 21", location:"Santiago de Compostela", name:"Hotel Gelmirez", type:"Hotel", address:"Rúa do Hórreo, 92, 15702 Santiago de Compostela, A Coruña", map:"Hotel Gelmirez, Rúa do Hórreo 92, Santiago de Compostela, Spain", bikeNote:"🚴 Return bikes: Cycling de Camino, Av. de Lugo 4 · Pilgrim Mass noon & 7:30pm" },
+];
+
+const transport = [
+  { date:"Sat May 9", fromCity:"Toulouse", toCity:"Lourdes", from:"33 Chemin de Garric, Toulouse", to:"31 Av. Général Baron Maransin, 65100 Lourdes", type:"🚗 Rideshare", vendor:"BlaBlaCar", fromMap:"33 Chemin de Garric, Toulouse, France", toMap:"31 Avenue Général Baron Maransin, 65100 Lourdes, France" },
+  { date:"Mon May 11", fromCity:"Lourdes", toCity:"Saint-Jean-Pied-de-Port", from:"65100 Lourdes, France", to:"64220 Saint-Jean-Pied-de-Port, France", type:"🚂 Train", vendor:"SNCF Connect", fromMap:"Gare de Lourdes, 65100 Lourdes, France", toMap:"Gare de Saint-Jean-Pied-de-Port, 64220 Saint-Jean-Pied-de-Port, France" },
+  { date:"Wed May 13", fromCity:"Roncesvalles", toCity:"Pamplona", from:"N-135, 47, 31650 Roncesvalles, Navarra", to:"C. Yanguas y Miranda, 2, 31003 Pamplona", type:"🚌 Bus", vendor:"Autocares Artieda", fromMap:"N-135 47, 31650 Roncesvalles, Navarra, Spain", toMap:"Calle Yanguas y Miranda 2, 31003 Pamplona, Spain" },
+  { date:"Thu May 14", fromCity:"Pamplona", toCity:"Logroño", from:"C. Yanguas y Miranda, 2, 31003 Pamplona", to:"Av. Pérez Galdós, 68-70, 26005 Logroño", type:"🚌 Bus", vendor:"La Estellesa", fromMap:"Calle Yanguas y Miranda 2, 31003 Pamplona, Spain", toMap:"Avenida Pérez Galdós 68, 26005 Logroño, Spain" },
+  { date:"Fri May 15", fromCity:"Logroño", toCity:"Burgos", from:"Av. de Colón, 83, 26003 Logroño", to:"Calle de Miranda, 4, 09002 Burgos", type:"🚌 Bus", vendor:"Jimenez Movilidad", fromMap:"Avenida de Colón 83, 26003 Logroño, Spain", toMap:"Calle de Miranda 4, 09002 Burgos, Spain" },
+  { date:"Sat May 16", fromCity:"Burgos", toCity:"León", from:"A-1, PK: 235, 09001 Burgos", to:"C. Legión VII, 4, 24003 León", type:"🚗 Rideshare", vendor:"BlaBlaCar", fromMap:"A-1 PK 235, 09001 Burgos, Spain", toMap:"Calle Legión VII 4, 24003 León, Spain" },
+  { date:"Fri May 22", fromCity:"Santiago de Compostela", toCity:"Porto", from:"Rúa Clara Campoamor, 15702 Santiago de Compostela", to:"R. de Bonjóia 691, 4300-084 Porto, Portugal", type:"🚌 Bus", vendor:"BlaBlaCar", fromMap:"Rúa de Clara Campoamor, 15702 Santiago de Compostela, Spain", toMap:"R. de Bonjóia 691, 4300-084 Porto, Portugal" },
+];
+
+// ─── BUILD LOGISTICS ───────────────────────────────────────────────────
+(function buildLogistics(){
+  const container = document.getElementById('logisticsContent');
+  if(!container) return;
+
+  // Section: Accommodations
+  const accTitle = document.createElement('div');
+  accTitle.className = 'section-heading';
+  accTitle.style.cssText = 'display:flex;align-items:center;gap:9px;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)';
+  accTitle.innerHTML = '<div class="section-icon icon-faith" style="background:#FDF0E6">🏨</div><div class="section-title">Accommodations</div>';
+  container.appendChild(accTitle);
+
+  const accCards = document.createElement('div');
+  accCards.className = 'cards';
+  accCards.style.marginBottom = '2rem';
+
+  accommodations.forEach((a, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    if(i===0) card.style.borderRadius='8px 8px 0 0';
+    if(i===accommodations.length-1){card.style.borderRadius='0 0 8px 8px';card.style.borderBottom='1px solid var(--border)';}
+    const isBike = !!a.bikeNote;
+    const typeColor = isBike ? 'var(--sage)' : 'var(--blue)';
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:3px">${a.date} · ${a.location}</div>
+          <div class="card-title" style="margin-bottom:2px">${a.name}</div>
+          <div style="font-size:12px;color:var(--ink-muted);margin-bottom:4px">${a.type} · ${a.address}</div>
+          ${a.bikeNote ? `<div style="font-size:12px;color:var(--sage);font-weight:500;margin-bottom:4px">${a.bikeNote}</div>` : ''}
+        </div>
+        <span style="font-size:10px;font-weight:600;letter-spacing:.05em;padding:3px 8px;border-radius:3px;background:${isBike ? 'var(--sage-pale)' : 'var(--blue-pale)'};color:${typeColor};white-space:nowrap;flex-shrink:0">${isBike ? '🚴 Bike Tour' : a.type}</span>
+      </div>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.map)}" target="_blank" rel="noopener"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M5 7L5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg> View on map</a>
+    `;
+    accCards.appendChild(card);
+  });
+  container.appendChild(accCards);
+
+  // Section: Transport
+  const transTitle = document.createElement('div');
+  transTitle.className = 'section-heading';
+  transTitle.style.cssText = 'display:flex;align-items:center;gap:9px;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)';
+  transTitle.innerHTML = '<div class="section-icon icon-tip">🚌</div><div class="section-title">Transport Legs</div>';
+  container.appendChild(transTitle);
+
+  const transCards = document.createElement('div');
+  transCards.className = 'cards';
+  transport.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    if(i===0) card.style.borderRadius='8px 8px 0 0';
+    if(i===transport.length-1){card.style.borderRadius='0 0 8px 8px';card.style.borderBottom='1px solid var(--border)';}
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+        <div>
+          <div style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:3px">${t.date}</div>
+          <div style="font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--ink);line-height:1.2">${t.fromCity} <span style="color:var(--gold);font-style:normal">→</span> ${t.toCity}</div>
+          <div style="font-size:11px;color:var(--ink-muted);margin-top:2px">${t.vendor}</div>
+        </div>
+        <span style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:3px;background:var(--blue-pale);color:var(--blue);white-space:nowrap;flex-shrink:0">${t.type}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div>
+          <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:2px">From</div>
+          <div class="card-body" style="font-size:13px">${t.from}</div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.fromMap)}" target="_blank" rel="noopener"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M5 7L5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg> Map</a>
+        </div>
+        <div>
+          <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:2px">To</div>
+          <div class="card-body" style="font-size:13px">${t.to}</div>
+          ${t.toMap ? `<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.toMap)}" target="_blank" rel="noopener"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M5 7L5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg> Map</a>` : ''}
+        </div>
+      </div>
+    `;
+    transCards.appendChild(card);
+  });
+  container.appendChild(transCards);
+
+  // Galician Roots contact box
+  const contactBox = document.createElement('div');
+  contactBox.className = 'tip-box';
+  contactBox.style.marginTop = '1rem';
+  contactBox.innerHTML = `<div class="tip-label" style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">🌿 Galician Roots — Your Tour Operator</div><div class="tip-body">For any questions during the bike tour: <strong>+34 622 281 658</strong> · <strong>info@galicianroots.com</strong><br><br>Luggage pickup: 8:00am daily at your hotel. Tag must stay on your bag. One suitcase per person (15–20kg max). Breakfast 7:00–9:30am · Dinner 8:30–9:30pm (included).<br><br>Return bikes to: <strong>Cycling de Camino, Avenida de Lugo 4, Santiago de Compostela</strong> — 5 min from Obradoiro.</div>`;
+  container.appendChild(contactBox);
+})();
 
 </script>
 </body>
